@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="456" height="456" viewBox="0 0 456 456">
-<circle cx="318" cy="318" r="22" fill="#F59E0B"/>
-<g transform="translate(228 228) rotate(-28)"><rect x="-92.00" y="-10.00" width="184.00" height="20.00" rx="8.00" fill="#FFFFFF"/><rect x="-80.00" y="-60.00" width="28.00" height="120.00" rx="10.00" fill="#FFFFFF"/><rect x="-112.00" y="-44.00" width="26.00" height="88.00" rx="10.00" fill="#FFFFFF"/><rect x="52.00" y="-60.00" width="28.00" height="120.00" rx="10.00" fill="#FFFFFF"/><rect x="86.00" y="-44.00" width="26.00" height="88.00" rx="10.00" fill="#FFFFFF"/></g>
+<rect x="146" y="186" width="164" height="20" rx="8" fill="#FFFFFF"/>
+<rect x="150" y="141" width="28" height="110" rx="10" fill="#FFFFFF"/>
+<rect x="118" y="156" width="26" height="80" rx="10" fill="#FFFFFF"/>
+<rect x="278" y="141" width="28" height="110" rx="10" fill="#FFFFFF"/>
+<rect x="312" y="156" width="26" height="80" rx="10" fill="#FFFFFF"/>
+<polyline points="112,300 176,300 200,266 230,334 258,282 278,300 344,300" fill="none" stroke="#F59E0B" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

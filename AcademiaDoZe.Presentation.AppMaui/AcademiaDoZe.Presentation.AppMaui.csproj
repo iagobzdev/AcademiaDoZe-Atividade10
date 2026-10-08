@@ -12,9 +12,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 
-		<MauiXamlInflator>SourceGen</MauiXamlInflator>
-
-		<ApplicationTitle>Academia do Zé</ApplicationTitle>
+		<ApplicationTitle>Academia do Iago</ApplicationTitle>
 		<ApplicationId>com.iagoceccatto.academiadoze</ApplicationId>
 
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
