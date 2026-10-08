@@ -24,8 +24,16 @@
                                 <Label Text="{Binding UltimaAtualizacao}" Style="{StaticResource Muted}" />
                             </VerticalStackLayout>
                             <HorizontalStackLayout Spacing="10" Margin="0,0,0,8">
-                                <Button Text="Alternar tema" Style="{StaticResource ButtonSecondary}" Command="{Binding AlternarTemaCommand}" />
-                                <Button Text="Atualizar" Style="{StaticResource ButtonPrimary}" Command="{Binding LoadDashboardDataCommand}" />
+                                <Button Text="Alternar tema" Style="{StaticResource ButtonSecondary}" Command="{Binding AlternarTemaCommand}" ContentLayout="Left,8">
+                                    <Button.ImageSource>
+                                        <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe3ab;" Size="18" Color="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource PrimaryDark}}" />
+                                    </Button.ImageSource>
+                                </Button>
+                                <Button Text="Atualizar" Style="{StaticResource ButtonPrimary}" Command="{Binding LoadDashboardDataCommand}" ContentLayout="Left,8">
+                                    <Button.ImageSource>
+                                        <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe5d5;" Size="18" Color="{AppThemeBinding Light={StaticResource OnPrimaryLight}, Dark={StaticResource OnPrimaryDark}}" />
+                                    </Button.ImageSource>
+                                </Button>
                             </HorizontalStackLayout>
                         </FlexLayout>
                     </VerticalStackLayout>
@@ -43,7 +51,7 @@
                                 </Border.GestureRecognizers>
                                 <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="6">
                                     <Border Style="{StaticResource Badge}" BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
-                                        <Label Text="LG" Style="{StaticResource BadgeText}" TextColor="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource PrimaryDark}}" />
+                                        <Label Text="&#xe7f1;" Style="{StaticResource IconBadgeText}" TextColor="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource PrimaryDark}}" />
                                     </Border>
                                     <Label Grid.Row="1" Text="{Binding TotalLogradouros}" Style="{StaticResource StatNumber}" Margin="0,8,0,0" />
                                     <Label Grid.Row="2" Text="Logradouros" Style="{StaticResource SubHeadline}" FontSize="16" />
@@ -59,7 +67,7 @@
                                 </Border.GestureRecognizers>
                                 <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="6">
                                     <Border Style="{StaticResource Badge}" BackgroundColor="{AppThemeBinding Light={StaticResource AccentSoftLight}, Dark={StaticResource AccentSoftDark}}">
-                                        <Label Text="AL" Style="{StaticResource BadgeText}" TextColor="{AppThemeBinding Light={StaticResource AccentLight}, Dark={StaticResource AccentDark}}" />
+                                        <Label Text="&#xe80c;" Style="{StaticResource IconBadgeText}" TextColor="{AppThemeBinding Light={StaticResource AccentLight}, Dark={StaticResource AccentDark}}" />
                                     </Border>
                                     <Label Grid.Row="1" Text="{Binding TotalAlunos}" Style="{StaticResource StatNumber}" Margin="0,8,0,0" />
                                     <Label Grid.Row="2" Text="Alunos" Style="{StaticResource SubHeadline}" FontSize="16" />
@@ -75,7 +83,7 @@
                                 </Border.GestureRecognizers>
                                 <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="6">
                                     <Border Style="{StaticResource Badge}" BackgroundColor="{AppThemeBinding Light={StaticResource IndigoSoftLight}, Dark={StaticResource IndigoSoftDark}}">
-                                        <Label Text="CO" Style="{StaticResource BadgeText}" TextColor="{AppThemeBinding Light={StaticResource IndigoLight}, Dark={StaticResource IndigoDark}}" />
+                                        <Label Text="&#xea67;" Style="{StaticResource IconBadgeText}" TextColor="{AppThemeBinding Light={StaticResource IndigoLight}, Dark={StaticResource IndigoDark}}" />
                                     </Border>
                                     <Label Grid.Row="1" Text="{Binding TotalColaboradores}" Style="{StaticResource StatNumber}" Margin="0,8,0,0" />
                                     <Label Grid.Row="2" Text="Colaboradores" Style="{StaticResource SubHeadline}" FontSize="16" />
@@ -91,7 +99,7 @@
                                 </Border.GestureRecognizers>
                                 <Grid RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="6">
                                     <Border Style="{StaticResource Badge}" BackgroundColor="{AppThemeBinding Light={StaticResource RoseSoftLight}, Dark={StaticResource RoseSoftDark}}">
-                                        <Label Text="MT" Style="{StaticResource BadgeText}" TextColor="{AppThemeBinding Light={StaticResource RoseLight}, Dark={StaticResource RoseDark}}" />
+                                        <Label Text="&#xe8f7;" Style="{StaticResource IconBadgeText}" TextColor="{AppThemeBinding Light={StaticResource RoseLight}, Dark={StaticResource RoseDark}}" />
                                     </Border>
                                     <Label Grid.Row="1" Text="{Binding TotalMatriculas}" Style="{StaticResource StatNumber}" Margin="0,8,0,0" />
                                     <Label Grid.Row="2" Text="Matrículas" Style="{StaticResource SubHeadline}" FontSize="16" />

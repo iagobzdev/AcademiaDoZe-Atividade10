@@ -1,6 +1,8 @@
 // Autor: Iago Barboza Ceccatto
 using AcademiaDoZe.Application.Interfaces;
+using AcademiaDoZe.Presentation.AppMaui.Message;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace AcademiaDoZe.Presentation.AppMaui.ViewModels;
 
@@ -96,7 +98,8 @@ public partial class DashboardListViewModel : BaseViewModel
         if (Microsoft.Maui.Controls.Application.Current is not { } app)
             return;
 
-        app.UserAppTheme = app.RequestedTheme == AppTheme.Dark ? AppTheme.Light : AppTheme.Dark;
+        Preferences.Set("Tema", app.RequestedTheme == AppTheme.Dark ? "light" : "dark");
+        WeakReferenceMessenger.Default.Send(new TemaPreferencesUpdatedMessage("TemaAlterado"));
     }
 
     private static async Task NavegarAsync(string rota, string funcionalidade)

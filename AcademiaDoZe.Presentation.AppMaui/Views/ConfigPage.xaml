@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AcademiaDoZe.Presentation.AppMaui.Views.ConfigPage"
+             Title="Configurações">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="28,20" Spacing="20" MaximumWidthRequest="860">
+
+            <VerticalStackLayout Spacing="2">
+                <Label Text="Preferências" Style="{StaticResource Overline}" />
+                <Label Text="Configurações" Style="{StaticResource Headline}" />
+                <Label Text="As escolhas ficam salvas no dispositivo e são aplicadas assim que você salvar." Style="{StaticResource Muted}" />
+            </VerticalStackLayout>
+
+            <Border Style="{StaticResource CardBorder}" Padding="22">
+                <VerticalStackLayout Spacing="16">
+
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
+                        <Border Style="{StaticResource Badge}" BackgroundColor="{AppThemeBinding Light={StaticResource AccentSoftLight}, Dark={StaticResource AccentSoftDark}}">
+                            <Label Text="&#xe40a;" Style="{StaticResource IconBadgeText}" TextColor="{AppThemeBinding Light={StaticResource AccentLight}, Dark={StaticResource AccentDark}}" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                            <Label Text="Tema" Style="{StaticResource SubHeadline}" />
+                            <Label Text="Escolha a aparência do aplicativo." Style="{StaticResource Muted}" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Tema" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="TemaPicker">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Claro</x:String>
+                                    <x:String>Escuro</x:String>
+                                    <x:String>Padrão do sistema</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </VerticalStackLayout>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <Button Grid.Column="0" Text="Cancelar" Clicked="OnCancelarClicked" Style="{StaticResource ButtonSecondary}" ContentLayout="Left,8">
+                            <Button.ImageSource>
+                                <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe5c9;" Size="18" Color="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource PrimaryDark}}" />
+                            </Button.ImageSource>
+                        </Button>
+                        <Button Grid.Column="1" Text="Salvar Tema" Clicked="OnSalvarTemaClicked" Style="{StaticResource ButtonPrimary}" ContentLayout="Left,8">
+                            <Button.ImageSource>
+                                <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe161;" Size="18" Color="{AppThemeBinding Light={StaticResource OnPrimaryLight}, Dark={StaticResource OnPrimaryDark}}" />
+                            </Button.ImageSource>
+                        </Button>
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Border Style="{StaticResource CardBorder}" Padding="22">
+                <VerticalStackLayout Spacing="16">
+
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="14">
+                        <Border Style="{StaticResource Badge}" BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
+                            <Label Text="&#xe1db;" Style="{StaticResource IconBadgeText}" TextColor="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource PrimaryDark}}" />
+                        </Border>
+                        <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                            <Label Text="Credenciais do Banco" Style="{StaticResource SubHeadline}" />
+                            <Label Text="Defina o gerenciador e os dados de conexão." Style="{StaticResource Muted}" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Tipo de Gerenciador" Style="{StaticResource FieldLabel}" />
+                        <Picker x:Name="DatabaseTypePicker" SelectedIndexChanged="OnDatabaseTypeChanged" />
+                    </VerticalStackLayout>
+
+                    <Border x:Name="SqliteInfoCard" IsVisible="False" StrokeThickness="0" StrokeShape="RoundRectangle 10" Padding="14,12"
+                            BackgroundColor="{AppThemeBinding Light={StaticResource PrimarySoftLight}, Dark={StaticResource PrimarySoftDark}}">
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                            <Label Text="&#xe88e;" FontFamily="MaterialIcons" FontSize="20" VerticalOptions="Center"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource PrimaryDark}}" />
+                            <Label Grid.Column="1" FontSize="13" VerticalOptions="Center"
+                                   Text="O SQLite é um banco de dados local armazenado em arquivo. Não requer servidor de rede, usuário ou senha. Se o arquivo informado não existir, ele é criado com todas as tabelas."
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryHoverLight}, Dark={StaticResource PrimaryHoverDark}}" />
+                        </Grid>
+                    </Border>
+
+                    <VerticalStackLayout x:Name="SqliteContainer" Spacing="6" IsVisible="False">
+                        <Label Text="Caminho / Arquivo do Banco (.db)" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="SqliteCaminhoEntry" Placeholder="Ex.: C:\DEV\AcademiaDoZe\db_academia_do_ze.db" />
+                    </VerticalStackLayout>
+
+                    <Grid x:Name="ServidorBancoGrid" ColumnDefinitions="*,*" ColumnSpacing="16">
+                        <VerticalStackLayout Grid.Column="0" Spacing="6">
+                            <Label Text="Servidor" Style="{StaticResource FieldLabel}" />
+                            <Entry x:Name="ServidorEntry" Placeholder="Digite o servidor..." />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="6">
+                            <Label Text="Banco" Style="{StaticResource FieldLabel}" />
+                            <Entry x:Name="BancoEntry" Placeholder="Digite o nome do banco..." />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Grid x:Name="CredenciaisGrid" ColumnDefinitions="*,*" ColumnSpacing="16">
+                        <VerticalStackLayout Grid.Column="0" Spacing="6">
+                            <Label Text="Usuário" Style="{StaticResource FieldLabel}" />
+                            <Entry x:Name="UsuarioEntry" Placeholder="Digite o usuário..." />
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" Spacing="6">
+                            <Label Text="Senha" Style="{StaticResource FieldLabel}" />
+                            <Entry x:Name="SenhaEntry" Placeholder="Digite a senha..." IsPassword="True" />
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <VerticalStackLayout Spacing="6">
+                        <Label x:Name="ComplementoLabel" Text="Complemento" Style="{StaticResource FieldLabel}" />
+                        <Entry x:Name="ComplementoEntry" Placeholder="Digite o complemento..." />
+                    </VerticalStackLayout>
+
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                        <Button Grid.Column="0" Text="Cancelar" Clicked="OnCancelarClicked" Style="{StaticResource ButtonSecondary}" ContentLayout="Left,8">
+                            <Button.ImageSource>
+                                <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe5c9;" Size="18" Color="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource PrimaryDark}}" />
+                            </Button.ImageSource>
+                        </Button>
+                        <Button Grid.Column="1" Text="Salvar BD" Clicked="OnSalvarBdClicked" Style="{StaticResource ButtonPrimary}" ContentLayout="Left,8">
+                            <Button.ImageSource>
+                                <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe161;" Size="18" Color="{AppThemeBinding Light={StaticResource OnPrimaryLight}, Dark={StaticResource OnPrimaryDark}}" />
+                            </Button.ImageSource>
+                        </Button>
+                    </Grid>
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

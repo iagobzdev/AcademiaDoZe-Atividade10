@@ -25,7 +25,11 @@
                         <Label Text="CEP" Style="{StaticResource FieldLabel}" />
                         <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
                             <Entry Text="{Binding Logradouro.Cep}" Placeholder="00000-000" Keyboard="Numeric" MaxLength="9" ReturnCommand="{Binding SearchByCepCommand}" />
-                            <Button Grid.Column="1" Text="Buscar CEP" Command="{Binding SearchByCepCommand}" Style="{StaticResource ButtonSecondary}" HeightRequest="42" />
+                            <Button Grid.Column="1" Text="Buscar CEP" Command="{Binding SearchByCepCommand}" Style="{StaticResource ButtonSecondary}" HeightRequest="42" ContentLayout="Left,8">
+                                <Button.ImageSource>
+                                    <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe8b6;" Size="18" Color="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource PrimaryDark}}" />
+                                </Button.ImageSource>
+                            </Button>
                         </Grid>
                         <Label Text="Se o CEP já estiver cadastrado, os dados são carregados para edição." Style="{StaticResource Muted}" FontSize="12" />
                     </VerticalStackLayout>
@@ -65,8 +69,16 @@
                 </Border>
 
                 <FlexLayout JustifyContent="End" Wrap="Wrap">
-                    <Button Text="Cancelar" Command="{Binding CancelCommand}" Style="{StaticResource ButtonSecondary}" WidthRequest="160" Margin="0,0,12,8" />
-                    <Button Text="Salvar" Command="{Binding SaveLogradouroCommand}" Style="{StaticResource ButtonPrimary}" WidthRequest="160" Margin="0,0,0,8" />
+                    <Button Text="Cancelar" Command="{Binding CancelCommand}" Style="{StaticResource ButtonSecondary}" WidthRequest="160" Margin="0,0,12,8" ContentLayout="Left,8">
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe5c9;" Size="18" Color="{AppThemeBinding Light={StaticResource PrimaryLight}, Dark={StaticResource PrimaryDark}}" />
+                        </Button.ImageSource>
+                    </Button>
+                    <Button Text="Salvar" Command="{Binding SaveLogradouroCommand}" Style="{StaticResource ButtonPrimary}" WidthRequest="160" Margin="0,0,0,8" ContentLayout="Left,8">
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="MaterialIcons" Glyph="&#xe161;" Size="18" Color="{AppThemeBinding Light={StaticResource OnPrimaryLight}, Dark={StaticResource OnPrimaryDark}}" />
+                        </Button.ImageSource>
+                    </Button>
                 </FlexLayout>
 
             </VerticalStackLayout>
